@@ -24,3 +24,9 @@ package { 'mysql-server':
 service { 'mysql':
   ensure => running,
 }
+
+# install awscli package
+package { 'awscli':
+  require => Exec['apt-update'],        # require 'apt-update' before installing
+  ensure => installed,
+}
